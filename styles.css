@@ -1,3 +1,6 @@
+/* Lab 8 – Climate Data Web Map */
+
+/* Reset and base layout */
 html, body {
   height: 100%;
   margin: 0;
@@ -5,11 +8,13 @@ html, body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Body layout: vertical flex with header, main, footer */
 body {
   display: flex;
   flex-direction: column;
 }
 
+/* Header styling */
 header {
   background-color: #2e7da1;
   color: #fff;
@@ -17,28 +22,60 @@ header {
   text-align: center;
 }
 
+/* Main content: map + info panel side by side */
 main {
   display: flex;
-  flex: 1 1 auto;
-  min-height: 0;  /* critical */
+  flex: 1 1 auto;   /* grow to fill remaining space */
+  min-height: 0;    /* critical for flex children to allow scrolling */
 }
 
+/* Leaflet map container */
 #map {
-  flex: 3;
-  height: 100%;
+  flex: 3;          /* 3/4 of horizontal space */
+  height: 100%;     /* fill vertical space of main */
 }
 
+/* Info panel container */
 #info-panel {
-  flex: 1;
+  flex: 1;          /* 1/4 of horizontal space */
   background-color: #f7f7f7;
   border-left: 2px solid #ccc;
   padding: 1rem;
   overflow-y: auto;
 }
 
+#info-panel h2 {
+  margin-top: 0;
+}
+
+/* Footer styling */
 footer {
   background-color: #eee;
   padding: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
+}
+
+/* Leaflet legend styling */
+.legend {
+  line-height: 18px;
+  color: #555;
+  background: white;
+  padding: 6px 8px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+/* Leaflet scale bar fix for right-bottom overlap */
+.leaflet-control-scale {
+  margin-bottom: 20px;
 }
